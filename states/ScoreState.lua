@@ -48,6 +48,6 @@ function ScoreState:render()
         love.graphics.setFont(flappyFont)
         love.graphics.printf('No Medals', 0, 130, VIRTUAL_WIDTH, 'center')
         love.graphics.setFont(mediumFont)
-        love.graphics.printf('MF cant even make it to 10', 0, 160, VIRTUAL_WIDTH, 'center')
+        love.graphics.printf('cant even make it to 10?', 0, 160, VIRTUAL_WIDTH, 'center')
     end
 end

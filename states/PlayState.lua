@@ -47,7 +47,7 @@ function PlayState:update(dt)
     math.randomseed(os.time())
     spawnTime = math.random(2,4)
     -- the gap gets smaller every 5 pipes
-    gapHeight = 120 - 10*math.floor(self.score/5)
+    gapHeight = 120 - 30*math.floor(self.score/5)
 
     -- spawn a new pipe pair every second and a half
     if self.timer > spawnTime then
