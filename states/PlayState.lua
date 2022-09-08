@@ -31,12 +31,12 @@ end
 
 function PlayState:update(dt)
     if self.paused then
-        if love.keyboard.wasPressed('space') then
+        if love.keyboard.wasPressed('p') then
             self.paused = false
         else
             return
         end
-    elseif love.keyboard.wasPressed('space') then
+    elseif love.keyboard.wasPressed('p') then
         self.paused = true
         return
     end
