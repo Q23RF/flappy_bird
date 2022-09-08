@@ -21,7 +21,7 @@ function PlayState:init()
     self.bird = Bird()
     self.pipePairs = {}
     self.timer = 0
-    self.scorec= 0
+    self.score = 0
     self.paused = false
 
     -- initialize our last recorded Y value for a gap placement to base other gaps off of
