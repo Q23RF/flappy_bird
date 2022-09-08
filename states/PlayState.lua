@@ -134,6 +134,15 @@ function PlayState:render()
     love.graphics.print('Score: ' .. tostring(self.score), 8, 8)
 
     self.bird:render()
+
+    if self.paused then
+        love.graphics.setFont(hugeFont)
+        love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT / 2 - 16, VIRTUAL_WIDTH, 'center')
+    end
+
+    for k, pair in pairs(self.pipePairs) do
+        pair:render()
+    end
 end
 
 --[[
