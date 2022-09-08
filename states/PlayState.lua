@@ -121,10 +121,7 @@ function PlayState:update(dt)
 end
 
 function PlayState:render()
-    if self.paused then
-        love.graphics.setFont(hugeFont)
-        love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT / 2 - 16, VIRTUAL_WIDTH, 'center')
-    end
+
 
     for k, pair in pairs(self.pipePairs) do
         pair:render()
@@ -137,7 +134,7 @@ function PlayState:render()
 
     if self.paused then
         love.graphics.setFont(hugeFont)
-        love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT / 2 - 16, VIRTUAL_WIDTH, 'center')
+        love.graphics.printf("PAUSED", 0, (VIRTUAL_HEIGHT - ground:getHeight()) / 2  - hugeFont:getHeight() / 2, VIRTUAL_WIDTH, 'center')
     end
 
     for k, pair in pairs(self.pipePairs) do
