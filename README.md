@@ -32,3 +32,6 @@ gStateMachine:change('play',{
 		  })
 ```
 
+---
+0908 update
+i implemented the pause function using the way i learned in breakout (self.paused and stuff) and it worked! also i  guess my way didnt work bc there is already a PlayState:enter()in the program for restarting the game after death! might try to fix that later but im just gonna submit the version with self.paused and move on to project 2.
