@@ -21,7 +21,8 @@ function PlayState:init()
     self.bird = Bird()
     self.pipePairs = {}
     self.timer = 0
-    self.score= 0
+    self.score = 0
+    self.paused = false
 
     -- initialize our last recorded Y value for a gap placement to base other gaps off of
     self.lastY = -PIPE_HEIGHT + math.random(80) + 20
@@ -29,6 +30,16 @@ end
 
 
 function PlayState:update(dt)
+    if self.paused then
+        if love.keyboard.wasPressed('p') then
+            self.paused = false
+        else
+            return
+        end
+    elseif love.keyboard.wasPressed('p') then
+        self.paused = true
+        return
+    end
 
     -- update timer for pipe spawning
     self.timer = self.timer + dt
@@ -110,6 +121,11 @@ function PlayState:update(dt)
 end
 
 function PlayState:render()
+    if self.paused then
+        love.graphics.setFont(hugeFont)
+        love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT / 2 - 16, VIRTUAL_WIDTH, 'center')
+    end
+
     for k, pair in pairs(self.pipePairs) do
         pair:render()
     end
@@ -118,6 +134,15 @@ function PlayState:render()
     love.graphics.print('Score: ' .. tostring(self.score), 8, 8)
 
     self.bird:render()
+
+    if self.paused then
+        love.graphics.setFont(hugeFont)
+        love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT / 2 - 16, VIRTUAL_WIDTH, 'center')
+    end
+
+    for k, pair in pairs(self.pipePairs) do
+        pair:render()
+    end
 end
 
 --[[
