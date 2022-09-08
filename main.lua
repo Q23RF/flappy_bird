@@ -161,6 +161,7 @@ function love.update(dt)
     groundScroll = (groundScroll + GROUND_SCROLL_SPEED * dt) % VIRTUAL_WIDTH
 
     gStateMachine:update(dt)
+    
 
     love.keyboard.keysPressed = {}
     love.mouse.buttonsPressed = {}

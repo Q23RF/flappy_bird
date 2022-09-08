@@ -9,6 +9,10 @@
 ]]
 
 ScoreState = Class{__includes = BaseState}
+local golden = love.graphics.newImage('golden_final.png')
+local silver = love.graphics.newImage('silver.png')
+local bronze = love.graphics.newImage('bronze.png')
+
 
 --[[
     When we enter the score state, we expect to receive the score
@@ -32,6 +36,18 @@ function ScoreState:render()
 
     love.graphics.setFont(mediumFont)
     love.graphics.printf('Score: ' .. tostring(self.score), 0, 100, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('Press Enter to Play Again!', 0, 200, VIRTUAL_WIDTH, 'center')
+    if self.score >= 5 then
+        love.graphics.draw(golden, VIRTUAL_WIDTH / 2 - golden:getWidth() / 2, 122)
 
-    love.graphics.printf('Press Enter to Play Again!', 0, 160, VIRTUAL_WIDTH, 'center')
+    elseif self.score >= 2 then
+        love.graphics.draw(silver, VIRTUAL_WIDTH / 2 - silver:getWidth() / 2, 122)
+    elseif self.score >= 1 then
+        love.graphics.draw(bronze, VIRTUAL_WIDTH / 2 - bronze:getWidth() / 2, 122)
+    else
+        love.graphics.setFont(flappyFont)
+        love.graphics.printf('No Medals', 0, 130, VIRTUAL_WIDTH, 'center')
+        love.graphics.setFont(mediumFont)
+        love.graphics.printf('MF cant even make it to 10', 0, 160, VIRTUAL_WIDTH, 'center')
+    end
 end
