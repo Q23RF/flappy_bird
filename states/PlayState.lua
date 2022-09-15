@@ -18,6 +18,7 @@ BIRD_WIDTH = 38
 BIRD_HEIGHT = 24
 
 function PlayState:enter(params)
+    scrolling = true
     self.bird = params.bird
     self.pipePairs = params.pipePairs
     self.timer = params.timer
@@ -131,10 +132,7 @@ end
 --[[
     Called when this state is transitioned to from another state.
 ]]
-function PlayState:enter()
-    -- if we're coming from death, restart scrolling
-    scrolling = true
-end
+
 
 --[[
     Called when this state changes to another state.

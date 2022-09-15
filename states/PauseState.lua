@@ -19,6 +19,11 @@ function PauseState:update()
 end
 
 function PauseState:render()
-	pauseImage = love.graphics.newImage('pause.png')
-	love.graphics.draw(pauseImage, 0, 120, VIRTUAL_WIDTH, 'center')
+	love.graphics.setFont(hugeFont)
+    love.graphics.printf("PAUSED", 0, (VIRTUAL_HEIGHT - ground:getHeight()) / 2  - hugeFont:getHeight() / 2, VIRTUAL_WIDTH, 'center')
+
+    for k, pair in pairs(self.pipePairs) do
+        pair:render()
+    end
+	self.bird:render()
 end
